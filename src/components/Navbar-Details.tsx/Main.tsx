@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import ProductsDetail from "./ProductsDetail";
 import ServiceDetail from "./ServiceDetail";
 import Pricing from "./Resources";
@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 function MainNavDetail() {
   const searchParams = useSearchParams();
   const navitem = searchParams.get("navitem");
+
   function getCorrectNavDetail() {
     switch (navitem) {
       case "Products":

@@ -23,8 +23,10 @@ function ProductsDetail() {
             </p>
           </div>
         </div>
-        {productData.map((el) => {
-          return <Product_card title={el.title} content={el.content} />;
+        {productData.map((el, index) => {
+          return (
+            <Product_card title={el.title} content={el.content} key={index} />
+          );
         })}
       </div>
       <div className="col-span-6 h-full grid grid-cols-6 gap-4">
@@ -32,11 +34,12 @@ function ProductsDetail() {
           <h1 className="h-12 flex justify-center items-center font-semibold tracking-wider text-stone-500">
             INDUSTRIES
           </h1>
-          {productCategory["industries"].map((el) => {
+          {productCategory["industries"].map((el, index) => {
             return (
               <li
                 className="h-12 flex justify-center items-center font-semibold tracking-wide text-stone-700 cursor-pointer
                hover:bg-green-50 rounded-md text-xs"
+                key={index}
               >
                 {el.name}
               </li>
@@ -47,11 +50,12 @@ function ProductsDetail() {
           <h1 className="h-12 flex justify-center items-center font-semibold tracking-wider text-stone-500">
             ROLES
           </h1>
-          {productCategory["roles"].map((el) => {
+          {productCategory["roles"].map((el, index) => {
             return (
               <li
                 className="h-12 flex justify-center items-center font-semibold tracking-wide text-stone-700 cursor-pointer
                hover:bg-green-50 rounded-md text-xs"
+                key={index}
               >
                 {el.name}
               </li>
@@ -62,11 +66,12 @@ function ProductsDetail() {
           <h1 className="h-12 flex justify-center items-center font-semibold tracking-wider text-stone-500">
             USE CASES
           </h1>
-          {productCategory["use_cases"].map((el) => {
+          {productCategory["use_cases"].map((el, index) => {
             return (
               <li
                 className="h-12 flex justify-center items-center font-semibold tracking-wide text-stone-700 cursor-pointer
                hover:bg-green-50 rounded-md text-xs"
+                key={index}
               >
                 {el.name}
               </li>

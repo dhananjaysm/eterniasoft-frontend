@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 
 function Button_secondary_purple({ text }: { text: string }) {
