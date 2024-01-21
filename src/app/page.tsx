@@ -1,8 +1,6 @@
-import Button_primary from "@/components/Common/Buttons/button-primary";
 import Button_primary_Green from "@/components/Common/Buttons/button-primary-green";
 import Navbar_1 from "@/components/Navbar-1";
 import MainNavDetail from "@/components/Navbar-Details.tsx/Main";
-import Image from "next/image";
 export default function Home() {
   return (
     <>

@@ -69,7 +69,7 @@ function Navbar_1() {
           </li>
           <li className="mx-2">
             <Link href="/signup">
-              <Button_primary text="Signup Free" bgcolor="amber" />
+              <Button_primary text="Signup Free" />
             </Link>
           </li>
         </ul>
