@@ -68,7 +68,7 @@ function Navbar_1() {
             </Link>
           </li>
           <li className="mx-2">
-            <Link href="/signup">
+            <Link href="/register">
               <Button_primary text="Signup Free" />
             </Link>
           </li>
