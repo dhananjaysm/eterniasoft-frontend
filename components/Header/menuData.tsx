@@ -15,16 +15,16 @@ const menuData: Menu[] = [
   },
   {
     id: 2.1,
-    title: "Blog",
+    title: "Product",
     newTab: false,
-    path: "/blog",
+    path: "/product",
   },
-  {
-    id: 2.3,
-    title: "Docs",
-    newTab: false,
-    path: "/docs",
-  },
+  // {
+  //   id: 2.3,
+  //   title: "Docs",
+  //   newTab: false,
+  //   path: "/docs",
+  // },
   {
     id: 3,
     title: "Pages",
@@ -48,12 +48,12 @@ const menuData: Menu[] = [
         newTab: false,
         path: "/auth/signup",
       },
-      {
-        id: 35,
-        title: "Docs",
-        newTab: false,
-        path: "/docs",
-      },
+      // {
+      //   id: 35,
+      //   title: "Docs",
+      //   newTab: false,
+      //   path: "/docs",
+      // },
       {
         id: 35.1,
         title: "Support",

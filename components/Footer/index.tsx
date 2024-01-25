@@ -29,7 +29,7 @@ const Footer = () => {
                 className="animate_top w-1/2 lg:w-1/4"
               >
                 <a href="index.html" className="relative">
-                  <Image
+                  {/* <Image
                     width={110}
                     height={80}
                     src="/images/logo/logo-light.svg"
@@ -42,7 +42,11 @@ const Footer = () => {
                     src="/images/logo/logo-dark.svg"
                     alt="Logo"
                     className="hidden dark:block"
-                  />
+                  /> */}
+
+                  <h1 className="mb-4.5 text-lg font-medium text-black dark:text-white">
+                    Eternia Windows
+                  </h1>
                 </a>
 
                 <p className="mb-10 mt-5">
@@ -56,11 +60,11 @@ const Footer = () => {
                   href="#"
                   className="text-itemtitle font-medium text-black dark:text-white"
                 >
-                  hello@solid.com
+                  hello@eterniawindows.com
                 </a>
               </motion.div>
 
-              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between md:gap-0 lg:w-2/3 xl:w-7/12">
+              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-start md:gap-12 lg:w-2/3 xl:w-7/12 xl:gap-24">
                 <motion.div
                   variants={{
                     hidden: {
@@ -100,14 +104,14 @@ const Footer = () => {
                         Product
                       </a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Careers
                       </a>
-                    </li>
+                    </li> */}
                     <li>
                       <a
                         href="#"
@@ -158,14 +162,14 @@ const Footer = () => {
                         Press media
                       </a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Our Blog
                       </a>
-                    </li>
+                    </li> */}
                     <li>
                       <a
                         href="#"
@@ -177,7 +181,7 @@ const Footer = () => {
                   </ul>
                 </motion.div>
 
-                <motion.div
+                {/* <motion.div
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -237,7 +241,7 @@ const Footer = () => {
                       </button>
                     </div>
                   </form>
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
           </div>
@@ -301,7 +305,8 @@ const Footer = () => {
               className="animate_top"
             >
               <p>
-                &copy; {new Date().getFullYear()} Solid. All rights reserved
+                &copy; {new Date().getFullYear()} Eternia Windows. All rights
+                reserved
               </p>
             </motion.div>
 

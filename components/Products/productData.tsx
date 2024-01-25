@@ -1,6 +1,6 @@
 import { Blog } from "@/types/blog";
 
-const BlogData: Blog[] = [
+const ProductData: Blog[] = [
   {
     _id: 1,
     mainImage: "/images/blog/blog-01.png",
@@ -45,4 +45,4 @@ const BlogData: Blog[] = [
   },
 ];
 
-export default BlogData;
+export default ProductData;

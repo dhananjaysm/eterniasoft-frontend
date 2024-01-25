@@ -1,9 +1,9 @@
 import React from "react";
 import SectionHeader from "../Common/SectionHeader";
-import BlogItem from "./BlogItem";
-import BlogData from "./blogData";
+import BlogItem from "./ProductItems";
+import BlogData from "./productData";
 
-const Blog = async () => {
+const Product = async () => {
   return (
     <section className="py-20 lg:py-25 xl:py-30">
       <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
@@ -11,8 +11,8 @@ const Blog = async () => {
         <div className="animate_top mx-auto text-center">
           <SectionHeader
             headerInfo={{
-              title: `NEWS & BLOGS`,
-              subtitle: `Latest News & Blogs`,
+              title: `Products`,
+              subtitle: `Latest Products`,
               description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
             }}
           />
@@ -31,4 +31,4 @@ const Blog = async () => {
   );
 };
 
-export default Blog;
+export default Product;
