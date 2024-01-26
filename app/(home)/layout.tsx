@@ -13,6 +13,7 @@ import { ApolloProvider } from "@apollo/client";
 import client from "@/utils/apolloClient";
 import { AuthProvider } from "../context/AuthContext";
 import { SubsProvider } from "../context/SubsContext";
+import { RequestsProvider } from "../context/RequestsContext";
 
 export default function RootLayout({
   children,
@@ -26,31 +27,33 @@ export default function RootLayout({
       <body className={`dark:bg-black ${inter.className}`}>
         <ApolloProvider client={client}>
           <AuthProvider>
-            <SubsProvider>
-              <ThemeProvider
-                enableSystem={false}
-                attribute="class"
-                defaultTheme="light"
-              >
-                <div className="flex h-screen overflow-hidden">
-                  <Sidebar
-                    sidebarOpen={sidebarOpen}
-                    setSidebarOpen={setSidebarOpen}
-                  />
-                  <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-                    <HomeHeader
+            <RequestsProvider>
+              <SubsProvider>
+                <ThemeProvider
+                  enableSystem={false}
+                  attribute="class"
+                  defaultTheme="light"
+                >
+                  <div className="flex h-screen overflow-hidden">
+                    <Sidebar
                       sidebarOpen={sidebarOpen}
                       setSidebarOpen={setSidebarOpen}
                     />
-                    <main>
-                      <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                        {children}
-                      </div>
-                    </main>
+                    <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+                      <HomeHeader
+                        sidebarOpen={sidebarOpen}
+                        setSidebarOpen={setSidebarOpen}
+                      />
+                      <main>
+                        <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                          {children}
+                        </div>
+                      </main>
+                    </div>
                   </div>
-                </div>
-              </ThemeProvider>
-            </SubsProvider>
+                </ThemeProvider>
+              </SubsProvider>
+            </RequestsProvider>
           </AuthProvider>
         </ApolloProvider>
       </body>

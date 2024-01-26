@@ -41,12 +41,12 @@ export default function Explore() {
   if (error) return <p>Error :(</p>;
   const planData = data?.findPlans;
   // Assuming subData contains an array of subscriptions with a field 'packageId' that relates to the package
-  const userSubscriptions = subsData?.userSubscriptions || [];
+  const userSubscriptions = subsData || [];
   // Map over planData to add the 'hasActiveSubscription' flag
   const plansWithSubInfo = planData?.map((plan) => {
     // Find the active subscription for this package, if any
     const activeSubscription = userSubscriptions.find(
-      (sub) => sub.plan.id === plan.id && sub.status.toLowerCase() == "active", // Assuming there's an `isActive` field to indicate active subscription
+      (sub) => sub?.plan?.id === plan?.id && sub.status?.toLowerCase() == "active", // Assuming there's an `isActive` field to indicate active subscription
     );
 
     // Check if there's an active subscription and extract the active date
