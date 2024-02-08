@@ -7,7 +7,7 @@ const CTA = () => {
   return (
     <>
       {/* <!-- ===== CTA Start ===== --> */}
-      <section className="overflow-hidden px-4 py-20 md:px-8 lg:py-25 xl:py-30 2xl:px-0">
+      <section className="px-4 py-20 overflow-hidden md:px-8 lg:py-25 xl:py-30 2xl:px-0">
         <div className="mx-auto max-w-c-1390 rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] px-7.5 py-12.5 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark md:px-12.5 xl:px-17.5 xl:py-0">
           <div className="flex flex-wrap gap-8 md:flex-nowrap md:items-center md:justify-between md:gap-0">
             <motion.div
@@ -28,14 +28,14 @@ const CTA = () => {
               viewport={{ once: true }}
               className="animate_left md:w-[70%] lg:w-1/2"
             >
-              <h2 className="mb-4 w-11/12 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle4">
+              <h2 className="w-11/12 mb-4 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle4">
                 Join With Us Today & Increase Your Productivity
               </h2>
-              <p>
+              {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
                 convallis tortor eros. Donec vitae tortor lacus. Phasellus
                 aliquam ante in maximus.
-              </p>
+              </p> */}
             </motion.div>
             <motion.div
               variants={{

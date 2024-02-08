@@ -11,9 +11,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Modal = ({ item, onClose }) => (
-  <div className="bg-smoke-light fixed inset-0 z-50 flex overflow-auto">
-    <div className="relative m-auto flex w-full max-w-md flex-col rounded-lg bg-white p-8">
-      <span className="absolute right-0 top-0 p-4" onClick={onClose}>
+  <div className="fixed inset-0 z-50 flex overflow-auto bg-smoke-light">
+    <div className="relative flex flex-col w-full max-w-md p-8 m-auto bg-white rounded-lg">
+      <span className="absolute top-0 right-0 p-4" onClick={onClose}>
         Close
       </span>
       <h2>{item.name}</h2>
@@ -54,7 +54,9 @@ export default function Explore() {
     const activeDateISO = activeSubscription
       ? activeSubscription.startDate
       : null; // Assuming `activeDate` field exists
-    const activeDate = useFormattedDate(activeDateISO);
+
+      const date = new Date(activeDateISO);
+    const activeDate = date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
 
     // Return a new object with all properties of the package, plus the 'hasActiveSubscription' and 'activeDate' if applicable
     return { ...plan, hasActiveSubscription, activeDate };
@@ -65,7 +67,7 @@ export default function Explore() {
   };
   return (
     <main>
-      <div className="mb-5 flex items-center justify-between">
+      <div className="flex items-center justify-between mb-5">
         <div>
           <h2 className="mb-1.5 text-title-md2 font-bold text-black dark:text-white">
             Explore Plans
@@ -87,7 +89,7 @@ export default function Explore() {
                 <span className="text-xl font-medium text-black dark:text-white">
                   $
                 </span>
-                <span className="text-title-xxl2 font-bold text-black dark:text-white">
+                <span className="font-bold text-black text-title-xxl2 dark:text-white">
                   {plan.price}
                 </span>
                 <span className="font-medium"> Per {plan.billingCycle}</span>
@@ -104,7 +106,7 @@ export default function Explore() {
               </ul>
               <button
                 onClick={() => handleItemClick(plan.id)}
-                className="mt-9 flex rounded-md border border-primary px-9 py-3 font-medium text-primary hover:bg-primary hover:text-white"
+                className="flex py-3 font-medium border rounded-md mt-9 border-primary px-9 text-primary hover:bg-primary hover:text-white"
               >
                 View Details
               </button>
@@ -128,30 +130,30 @@ export default function Explore() {
 {
   /* <div className="relative flex items-start justify-between">
 <div className="flex-1">
-  <div className="absolute -top-5 right-0">
+  <div className="absolute right-0 -top-5">
     {item.hasActiveSubscription && (
       <span className=" rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-200 dark:text-green-900">
         Active
       </span>
     )}
   </div>
-  <h3 className="mb-4 text-title-lg font-bold text-black dark:text-white">
+  <h3 className="mb-4 font-bold text-black text-title-lg dark:text-white">
     {item.name}
   </h3>
   <p className="font-medium">
     Empower Your Sales with Smart CRM Solutions
   </p>
   {!item.hasActiveSubscription ? (
-    <span className="mt-2 flex items-center gap-2">
+    <span className="flex items-center gap-2 mt-2">
       <span className="text-sm font-medium">Starting from</span>
-      <span className="flex items-center gap-1 rounded-md bg-meta-7 p-1 text-xs font-medium text-white">
+      <span className="flex items-center gap-1 p-1 text-xs font-medium text-white rounded-md bg-meta-7">
         <span>$12/user/month</span>
       </span>
     </span>
   ) : (
-    <span className="mt-2 flex items-center gap-2">
+    <span className="flex items-center gap-2 mt-2">
       <span className="text-sm font-medium">Active since</span>
-      <span className="flex items-center gap-1 rounded-md bg-meta-3 p-1 text-xs font-medium text-white">
+      <span className="flex items-center gap-1 p-1 text-xs font-medium text-white rounded-md bg-meta-3">
         <span>{item.activeDate}</span>
       </span>
     </span>

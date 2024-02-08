@@ -1,8 +1,7 @@
 "use client";
 import { useAuth } from "@/app/context/AuthContext";
+import Signin from "@/components/Auth/SignIn";
 
-import Signin from "@/components/Auth/Signin";
-import { Metadata } from "next";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 

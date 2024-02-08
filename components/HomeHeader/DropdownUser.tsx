@@ -44,15 +44,14 @@ const DropdownUser = ({user}) => {
   };
   return (
     <div className="relative">
-      <Link
+      <button
         ref={trigger}
         onClick={() => setDropdownOpen(!dropdownOpen)}
         className="flex items-center gap-4"
-        href="#"
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {user.firstName}
+            {user.firstName.toUpperCase()}
           </span>
           {/* <span className="block text-xs">UX Designer</span> */}
         </span>
@@ -78,7 +77,7 @@ const DropdownUser = ({user}) => {
             fill=""
           />
         </svg>
-      </Link>
+      </button>
 
       {/* <!-- Dropdown Start --> */}
       <div
@@ -90,7 +89,7 @@ const DropdownUser = ({user}) => {
         }`}
       >
         <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
-          <li>
+          {/* <li>
             <Link
               href="/profile"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
@@ -114,8 +113,8 @@ const DropdownUser = ({user}) => {
               </svg>
               My Profile
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link
               href="#"
               className="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
@@ -135,7 +134,7 @@ const DropdownUser = ({user}) => {
               </svg>
               My Contacts
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               href="/settings"

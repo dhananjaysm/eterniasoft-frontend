@@ -12,17 +12,19 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Products";
 import Testimonial from "@/components/Testimonial";
+import SearchHero from "@/components/Hero/SearchHero";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
-  description: "This is Home for Solid Pro",
+  title: "EterniaSoft",
+  description: "Empowering Your Workflow, Enhancing Your Success",
   // other metadata
 };
 
 export default function Home() {
   return (
     <main>
-      <Hero />
+      {/* <Hero /> */}
+      <SearchHero/>
       {/* <Brands /> */}
       <Feature />
       {/* <About /> */}
@@ -33,8 +35,8 @@ export default function Home() {
       {/* <FAQ /> */}
       {/* <Testimonial /> */}
       <Pricing />
-      <Contact />
-      <Blog />
+      {/* <Contact /> */}
+      {/* <Blog /> */}
     </main>
   );
 }

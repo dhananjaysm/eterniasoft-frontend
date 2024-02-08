@@ -2,10 +2,18 @@
 import React, { useContext, createContext, useEffect, useState } from "react";
 import { useQuery, QueryResult } from "@apollo/client";
 import { GET_USER_SUB_DATA } from "@/graphql/query";
+import { useAuth } from "./AuthContext";
 export interface Plan {
   id: string;
   name: string;
-  price: number; // Assuming price is a number, adjust according to your schema
+  price: number; 
+  description:string;
+  duration:number;
+  status:string;
+  billingCycle:string
+  trialPeriodDays:number
+  createdAt:Date
+  updatedAt:Date
 }
 
 export interface Subscription {
@@ -30,13 +38,13 @@ interface Props {
 }
 
 export const SubsProvider = ({ children }: Props) => {
-  const [userId, setUserId] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Access localStorage only when the component is mounted to the DOM
-    const storedUserId = localStorage.getItem("userId");
-    setUserId(storedUserId);
-  }, []);
+  // const [userId, setUserId] = useState<string | null>(null);
+  const {userId} = useAuth();
+  // useEffect(() => {
+  //   // Access localStorage only when the component is mounted to the DOM
+  //   const storedUserId = localStorage.getItem("userId");
+  //   setUserId(storedUserId);
+  // }, []);
   const {
     loading: subsLoading,
     error: subsError,

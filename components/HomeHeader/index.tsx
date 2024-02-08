@@ -13,10 +13,9 @@ const HomeHeader = (props: {
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
   const { userData, userLoading, userError } = useAuth();
-
+console.log("userdata",userData);
   if (userError) return <>{userError.message}</>;
 
-  console.log("user", userData);
   return (
     <header className="sticky top-0 flex w-full bg-white drop-shadow-1 dark:bg-boxdark z-999 dark:drop-shadow-none">
       <div className="flex items-center justify-between flex-grow px-4 py-4 shadow-2 md:px-6 2xl:px-11">
@@ -121,7 +120,7 @@ const HomeHeader = (props: {
           </ul>
 
           {/* <!-- User Area --> */}
-          {userData && <DropdownUser user={userData.findUserById} />}
+          {userData && <DropdownUser user={userData} />}
           {/* <!-- User Area --> */}
         </div>
       </div>

@@ -6,6 +6,7 @@ import Feedback from "@/components/home/dashboard/Feedback";
 import { GET_USER_SUB_DATA } from "@/graphql/query";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
+import { LoaderIcon } from "react-hot-toast";
 
 export default function Home() {
   const { userId } = useAuth();
@@ -15,7 +16,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className=" mb-5">
+      <div className="mb-5 ">
         <div>
           <h2 className="mb-1.5 text-title-md2 font-bold text-black dark:text-white">
             Active Subscriptions
@@ -25,7 +26,7 @@ export default function Home() {
         <NotificationCardHome />
       </div>
       {subsLoading ? (
-        <div>Loading...</div>
+       <LoaderIcon/>
       ) : subsData && subsData.length > 0 ? (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 2xl:gap-7.5">
           {subsData.map((sub) => (
@@ -39,8 +40,8 @@ export default function Home() {
                 alt="zohologo"
                 src={"/images/brand/zohologo.webp"}
               />
-              <h4 className="mb-2 mt-5 font-medium"></h4>
-              <h3 className="mb-2 text-title-md font-bold text-black dark:text-white">
+              <h4 className="mt-5 mb-2 font-medium"></h4>
+              <h3 className="mb-2 font-bold text-black text-title-md dark:text-white">
                 {sub.plan.name}
               </h3>
               <p className="flex items-center gap-1 text-sm font-medium">

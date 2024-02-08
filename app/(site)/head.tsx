@@ -1,9 +1,9 @@
 export default function Head() {
   return (
     <>
-      <title> Eternia Windows</title>
+      <title> EterniaSoft</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="Built with Next.js and TypeScript" />
+      <meta name="description" content="From Concept to Code: Crafting Your Ideal Software Solution." />
       <link rel="icon" href="/images/favicon.ico" />
     </>
   );

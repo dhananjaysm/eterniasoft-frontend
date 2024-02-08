@@ -18,8 +18,8 @@ const Settings = () => {
 
         <div className="grid grid-cols-5 gap-8">
           <div className="col-span-5 xl:col-span-3">
-            <div className="shadow-default rounded-sm border border-stroke bg-white dark:border-strokedark dark:bg-boxdark">
-              <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
+            <div className="bg-white border rounded-sm shadow-default border-stroke dark:border-strokedark dark:bg-boxdark">
+              <div className="py-4 border-b border-stroke px-7 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
                   Personal Information
                 </h3>
@@ -29,7 +29,7 @@ const Settings = () => {
                   <div className="mb-5.5 flex flex-col gap-5.5 sm:flex-row">
                     <div className="w-full sm:w-1/2">
                       <label
-                        className="mb-3 block text-sm font-medium text-black dark:text-white"
+                        className="block mb-3 text-sm font-medium text-black dark:text-white"
                         htmlFor="fullName"
                       >
                         Full Name
@@ -51,7 +51,7 @@ const Settings = () => {
 
                     <div className="w-full sm:w-1/2">
                       <label
-                        className="mb-3 block text-sm font-medium text-black dark:text-white"
+                        className="block mb-3 text-sm font-medium text-black dark:text-white"
                         htmlFor="phoneNumber"
                       >
                         Phone Number
@@ -69,7 +69,7 @@ const Settings = () => {
 
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="block mb-3 text-sm font-medium text-black dark:text-white"
                       htmlFor="emailAddress"
                     >
                       Email Address
@@ -113,7 +113,7 @@ const Settings = () => {
 
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="block mb-3 text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"
                     >
                       Username
@@ -129,17 +129,17 @@ const Settings = () => {
                   </div>
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="block mb-3 text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"
                     >
                       Roles
                     </label>
                     <div className="flex flex-wrap gap-2">
-                      {user.roles &&
-                        user.roles.map((role, index) => (
+                      {user?.roles &&
+                        user?.roles.map((role, index) => (
                           <div
                             key={index}
-                            className="leading-sm inline-flex items-center rounded-full bg-blue-200 px-3 py-1 text-xs font-bold uppercase text-blue-700"
+                            className="inline-flex items-center px-3 py-1 text-xs font-bold text-blue-700 uppercase bg-blue-200 rounded-full leading-sm"
                           >
                             {role}
                           </div>
@@ -149,13 +149,13 @@ const Settings = () => {
 
                   <div className="flex justify-end gap-4.5">
                     <button
-                      className="hover:shadow-1 flex justify-center rounded border border-stroke px-6 py-2 font-medium text-black dark:border-strokedark dark:text-white"
+                      className="flex justify-center px-6 py-2 font-medium text-black border rounded hover:shadow-1 border-stroke dark:border-strokedark dark:text-white"
                       type="submit"
                     >
                       Cancel
                     </button>
                     <button
-                      className="hover:shadow-1 flex justify-center rounded bg-primary px-6 py-2 font-medium text-gray"
+                      className="flex justify-center px-6 py-2 font-medium rounded hover:shadow-1 bg-primary text-gray"
                       type="submit"
                     >
                       Save

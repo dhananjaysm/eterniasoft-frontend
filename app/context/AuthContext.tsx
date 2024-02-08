@@ -73,7 +73,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         clearAuthToken,
         userId,
         setUserId: setAndStoreUserId,
-        userData,
+        userData:userData?.findUserById,
         userLoading,
         userError,
       }}

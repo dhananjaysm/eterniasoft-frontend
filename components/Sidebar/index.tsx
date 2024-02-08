@@ -1,11 +1,12 @@
-'use client'
-import React, { useEffect, useRef, useState } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 
-import Link from 'next/link';
+import Link from "next/link";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
-import { BsBellFill, BsBox2Heart, BsGearFill } from "react-icons/bs";
-import { usePathname, useRouter } from 'next/navigation';
+import { BsBellFill, BsBox2Heart, BsDoorOpen, BsGearFill } from "react-icons/bs";
+import { usePathname, useRouter } from "next/navigation";
 import { TbSmartHome } from "react-icons/tb";
+import { useAuth } from "@/app/context/AuthContext";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -13,9 +14,11 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-//   const location = useLocation();
-const pathname = usePathname();
+  //   const location = useLocation();
+  const pathname = usePathname();
+  const router = useRouter();
 
+  const { clearAuthToken } = useAuth();
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
   // Initialize sidebarExpanded state without localStorage value
@@ -23,16 +26,16 @@ const pathname = usePathname();
 
   // Effect to read and set sidebarExpanded state from localStorage
   useEffect(() => {
-    const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
-    setSidebarExpanded(storedSidebarExpanded === 'true');
+    const storedSidebarExpanded = localStorage.getItem("sidebar-expanded");
+    setSidebarExpanded(storedSidebarExpanded === "true");
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('sidebar-expanded', sidebarExpanded.toString());
+    localStorage.setItem("sidebar-expanded", sidebarExpanded.toString());
     if (sidebarExpanded) {
-      document.querySelector('body')?.classList.add('sidebar-expanded');
+      document.querySelector("body")?.classList.add("sidebar-expanded");
     } else {
-      document.querySelector('body')?.classList.remove('sidebar-expanded');
+      document.querySelector("body")?.classList.remove("sidebar-expanded");
     }
   }, [sidebarExpanded]);
   // close on click outside
@@ -47,8 +50,8 @@ const pathname = usePathname();
         return;
       setSidebarOpen(false);
     };
-    document.addEventListener('click', clickHandler);
-    return () => document.removeEventListener('click', clickHandler);
+    document.addEventListener("click", clickHandler);
+    return () => document.removeEventListener("click", clickHandler);
   });
 
   // close if the esc key is pressed
@@ -57,16 +60,16 @@ const pathname = usePathname();
       if (!sidebarOpen || keyCode !== 27) return;
       setSidebarOpen(false);
     };
-    document.addEventListener('keydown', keyHandler);
-    return () => document.removeEventListener('keydown', keyHandler);
+    document.addEventListener("keydown", keyHandler);
+    return () => document.removeEventListener("keydown", keyHandler);
   });
 
   useEffect(() => {
-    localStorage.setItem('sidebar-expanded', sidebarExpanded.toString());
+    localStorage.setItem("sidebar-expanded", sidebarExpanded.toString());
     if (sidebarExpanded) {
-      document.querySelector('body')?.classList.add('sidebar-expanded');
+      document.querySelector("body")?.classList.add("sidebar-expanded");
     } else {
-      document.querySelector('body')?.classList.remove('sidebar-expanded');
+      document.querySelector("body")?.classList.remove("sidebar-expanded");
     }
   }, [sidebarExpanded]);
 
@@ -74,14 +77,12 @@ const pathname = usePathname();
     <aside
       ref={sidebar}
       className={`absolute left-0 top-0 z-9999 flex h-screen w-[16rem] flex-col overflow-y-hidden bg-[#F3F5F7] duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <Link href="/">
-          {/* <img src={Logo} alt="Logo" /> */}
-        </Link>
+        <Link href="/">{/* <img src={Logo} alt="Logo" /> */}</Link>
 
         <button
           ref={trigger}
@@ -112,76 +113,88 @@ const pathname = usePathname();
         <nav className="px-4 py-4 mt-5 lg:mt-9 lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
-            <h3 className="mb-4 ml-4 text-sm font-semibold text-black">
-              MENU
-            </h3>
+            <h3 className="mb-4 ml-4 text-sm font-semibold text-black">MENU</h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">
-            <li>
+              <li>
                 <Link
                   href="/home"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
-                    pathname.includes('home') &&
-                    'bg-graydark text-bodydark1 dark:bg-meta-4'
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
+                    pathname.includes("home") &&
+                    "bg-graydark text-bodydark1 dark:bg-meta-4"
                   }`}
                 >
-                  <TbSmartHome/>
+                  <TbSmartHome />
                   Home
                 </Link>
               </li>
-             
+
               <li>
                 <Link
                   href="/explore"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
-                    pathname.includes('explore') &&
-                    'bg-graydark text-bodydark1 dark:bg-meta-4'
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
+                    pathname.includes("explore") &&
+                    "bg-graydark text-bodydark1 dark:bg-meta-4"
                   }`}
                 >
-                  <MdOutlineDashboardCustomize/>
+                  <MdOutlineDashboardCustomize />
                   Explore
                 </Link>
               </li>
               <li>
                 <Link
                   href="/subscriptions"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
-                    pathname.includes('subscriptions') &&
-                    'bg-graydark text-bodydark1 dark:bg-meta-4'
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
+                    pathname.includes("subscriptions") &&
+                    "bg-graydark text-bodydark1 dark:bg-meta-4"
                   }`}
                 >
-                  <BsBox2Heart/>
+                  <BsBox2Heart />
                   My Subscriptions
                 </Link>
               </li>
               <li>
                 <Link
                   href="/requests"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
-                    pathname.includes('requests') &&
-                    'bg-graydark text-bodydark1 dark:bg-meta-4'
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
+                    pathname.includes("requests") &&
+                    "bg-graydark text-bodydark1 dark:bg-meta-4"
                   }`}
                 >
-                  <BsBellFill/>
+                  <BsBellFill />
                   My Requests
                 </Link>
               </li>
               <li>
                 <Link
                   href="/settings"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
-                    pathname.includes('settings') &&
-                    'bg-graydark text-bodydark1 dark:bg-meta-4'
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black duration-300 ease-in-out hover:bg-graydark hover:text-bodydark1 dark:hover:bg-meta-4 ${
+                    pathname.includes("settings") &&
+                    "bg-graydark text-bodydark1 dark:bg-meta-4"
                   }`}
                 >
-                  <BsGearFill/>
+                  <BsGearFill />
                   Settings
                 </Link>
               </li>
             </ul>
           </div>
+          <div>
+            <button
+              onClick={() => {
+                clearAuthToken();
 
-         
+                router.push("/auth/signin");
+              }}
+              className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black duration-300 ease-in-out hover:bg-danger hover:text-bodydark1 dark:hover:bg-danger ${
+                pathname.includes("settings") &&
+                "bg-graydark text-bodydark1 dark:bg-meta-4"
+              }`}
+            >
+              <BsDoorOpen />
+              Logout
+            </button>
+          </div>
         </nav>
         {/* <!-- Sidebar Menu --> */}
       </div>

@@ -10,7 +10,7 @@ const ProductPurchaseModal = ({item, onClose}) => {
         <span className="mx-auto mb-6 inline-block h-1 w-22.5 rounded bg-primary"></span>
         <p className="mb-10">
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          industry. Lorem Ipsum has been the industry standard dummy text ever
           since
         </p>
         <div className="flex flex-wrap -mx-3 gap-y-4">

@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
@@ -43,6 +45,21 @@ module.exports = {
         //
         "black-2": "#010101",
         body: "#64748B",
+        gray: {
+          DEFAULT: '#EFF4FB', // This sets the default gray to the specified color
+          // You can add additional shades as needed
+          '50': '#F7FAFC',    // Lighter gray
+          '100': '#EDF2F7',
+          '200': '#E2E8F0',
+          '300': '#CBD5E0',
+          '400': '#A0AEC0',
+          '500': '#718096',    // Mid-tone gray
+          '600': '#4A5568',
+          '700': '#2D3748',    // Darker gray
+          '800': '#1A202C',
+          '900': '#171923',
+        },
+        graydark: "#333A48",
         bodydark: "#AEB7C0",
         bodydark1: "#DEE4EE",
         bodydark2: "#8A99AF",
@@ -72,6 +89,7 @@ module.exports = {
         success: "#219653",
         danger: "#D34053",
         warning: "#FFA70B",
+        ...defaultTheme.colors
       },
       fontSize: {
         metatitle: ["12px", "20px"],

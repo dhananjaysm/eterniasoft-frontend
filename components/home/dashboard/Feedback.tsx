@@ -111,8 +111,7 @@ const Feedback = () => {
               </p>
               <span className="block mt-1 text-sm"> 1 hour ago</span>
               <p className="mt-2.5 text-black dark:text-white">
-                It's an Affiliate commissions SaaS application that allows you
-                to track your affiliate revenue.
+              
               </p>
             </div>
             <span className="absolute left-8 -z-1 block h-[300%] w-[1px] border-l border-dashed border-stroke dark:border-strokedark"></span>
@@ -165,8 +164,7 @@ const Feedback = () => {
               </p>
               <span className="block mt-1 text-sm"> 3 hour ago</span>
               <p className="mt-2.5 text-black dark:text-white">
-                It's an Affiliate commissions SaaS application that allows you
-                to track your affiliate revenue.
+
               </p>
             </div>
           </div>
